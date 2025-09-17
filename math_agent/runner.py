@@ -15,7 +15,8 @@ async def main():
     print("간단한 계산을 지원하는 지원하는 에이전트입니다. 'exit' 입력 시 종료됩니다.")
     while True:
         user_input = input("User: ")
-        if user_input.lower() == "exit": break
+        if user_input.lower() in [ "exit", "quit"]:
+            break
 
         for event in runner.run(
             user_id=session.user_id, session_id=session.id, new_message=UserContent(user_input)
