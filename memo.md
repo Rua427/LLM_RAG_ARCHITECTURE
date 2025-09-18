@@ -14,3 +14,10 @@ after callback response 변경
 
 # MCP server testing WEP
 npx @modelcontextprotocol/inspector
+
+
+# Vector DB
+- EUCLID : 검색 점에서 거리 계산
+- COSINE : 검색 점에서 각도 계산
+
+
