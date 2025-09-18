@@ -9,12 +9,14 @@ class StoryAgent(BaseAgent):
     This agent runs a sequence of sub-agents to generate, critique, and refine a story.
     The process stops if the critic agent returns "No major issues found."
     """
+
+    # Agent 가져오기
     generator: BaseAgent
     critic: BaseAgent
     reviser: BaseAgent
 
     max_iterations: Optional[int] = None
-
+    no_criticism: str
     @override
     async def _run_async_impl(
         self, ctx: InvocationContext
@@ -31,7 +33,7 @@ class StoryAgent(BaseAgent):
             async for event in self.critic.run_async(ctx):
                 yield event
 
-            if ctx.session.state.get("criticism") == "완벽해요!":
+            if ctx.session.state.get("criticism") == self.no_criticism:
                 # If no major issues found, exit the loop
                 break
 

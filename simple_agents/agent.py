@@ -23,14 +23,12 @@ root_agent = SequentialAgent(name="json_input_data",
                                            sub_agents=[
                                                LambdaAgent(func=fibonacci,
                                                             name="fibonacci_agent",
-                                                        input_keys=["sequence"],
-                                                        output_key="sequence")
+                                                            input_keys=["sequence"],
+                                                            output_key="sequence")
                                             ]),
                          
                                 LambdaAgent(name="fibonacci_output_agent",
                                             func=lambda sequence, n: sequence[n],
                                             input_keys=["sequence", "number"],
                                             output_key="fibonacci number")
-
-
-                         ])
+                        ])

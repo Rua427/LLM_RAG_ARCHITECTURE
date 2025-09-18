@@ -16,6 +16,7 @@ class LambdaAgent(BaseAgent):
     input_keys: List[str]
     output_key: Optional[str] = None
 
+    # custom agent 구현 시 오버라이딩해야하는 함수?
     @override
     async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
         inputs = [ctx.session.state.get(k) for k in self.input_keys]
@@ -28,3 +29,4 @@ class LambdaAgent(BaseAgent):
         if callable(getattr(value, "__await__", None)):
             return await value
         return value
+    
