@@ -7,3 +7,10 @@ pip install google-adk
 
 before callback request 변경 
 after callback response 변경
+
+
+# MCP Server Repository
+  - https://mcprepository.com/
+
+# MCP server testing WEP
+npx @modelcontextprotocol/inspector
